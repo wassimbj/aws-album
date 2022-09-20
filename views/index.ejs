@@ -30,15 +30,22 @@
       Upload
     </a>
     <div class="grid grid-cols-4 gap-4 mt-24">
-      <div class="relative bg-red-500 rounded-md">
-        <img src="<%= img %>" class="object-cover rounded-md" alt="s3 image" />
+      <% for(img of images){ %>
+      <div class="relative shadow-sm border rounded-md">
+        <img
+          src="<%= img.url %>"
+          accept="image/*"
+          class="object-cover rounded-md"
+          alt="s3 image"
+        />
         <div class="absolute top-2 right-2">
           <div class="flex items-center gap-5">
-            <span class="bg-white">Del</span>
-            <span class="bg-white">Edit</span>
+            <a href="/delete/<%= img.key %> " class="cursor-pointer bg-blue-600 rounded-md px-2 py-1">Del</a>
+            <span class="cursor-pointer bg-blue-600 rounded-md px-2 py-1">Edit</span>
           </div>
         </div>
       </div>
+      <% } %>
     </div>
   </body>
 </html>
